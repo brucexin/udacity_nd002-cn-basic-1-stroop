@@ -18,6 +18,7 @@
 coverage/
 node_modules/
 etc/
+target/
 config/
 build/
 */build/
