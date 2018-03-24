@@ -284,36 +284,42 @@
 实验}\label{udacity-ux6570ux636eux5206ux6790-ux9879ux76eeux4e00-stroop-ux73b0ux8c61ux5206ux6790-ux5b9eux9a8c}
 
     实验对 \textbf{STROOP(斯特鲁普)}
-现象进行调查。统计了字体颜色和颜色单词一致和不一致两种情况的朗读时长。并根据统计抽样计算出两种情况下的朗读时长是否存在显著差异。
+现象进行调查。统计了代表颜色的单词的字义和其打印墨色一致和不一致两种情况时的朗读时长。并根据统计抽样计算出两种情况下的朗读时长是否存在显著差异。
 
 \subsubsection{自变量:}\label{ux81eaux53d8ux91cf}
 
-表示颜色的单词和显示（或书写）该单词所用的字体颜色
+自变量是文字字义与文字颜色是否一致。有一致和不一致两种情况。
 
 \subsubsection{因变量:}\label{ux56e0ux53d8ux91cf}
 
-颜色单词和显示（或书写）该单词的颜色一致时朗读所需的平均时长 \(T_c\)
+完成测试读出单词所花的时长。
 
-颜色单词和显示（或书写）该单词的颜色不一致时朗读所需的平均时长 \(T_i\)
+根据测试样本得出的总体平均时长:
+
+文字字义与文字颜色一致时的总体平均时长 \(T_c\)
+
+文字字义与文字颜色不一致时的总体平均时长 \(T_i\)
 
 \subsubsection{零假设：}\label{ux96f6ux5047ux8bbe}
 
-朗读颜色单词所需的时长和显示（或书写）该单词时所用的颜色无关
+读出单词所花的时长和单词打印墨色无关
 
-\[H_0: T_c == T_i\]
+\[H_0: T_c = T_i\]
 
 \subsubsection{拒绝零假设：}\label{ux62d2ux7eddux96f6ux5047ux8bbe}
 
-朗读颜色单词所需的时长受显示（或书写）该单词时所用的颜色干扰，不一致时的朗读时长明显大于一致时的朗读时长
+读出单词所花的时长受单词打印墨色干扰，单词字义和单词打印墨色不一致时完成测试所用的时长明显大于一致时的时长
 
-\[Reject H_0: T_c < T_i\]
+\[H_a: T_c < T_i\]
 
 \subsubsection{统计方法：}\label{ux7edfux8ba1ux65b9ux6cd5}
 
-根据 \textbf{STROOP}
-实验的描述，是对相同样本进行两种不同的朗读测试，因此适用相依样本T检验。
+因为并不知道总体偏差，而且样本文件中有只有24条测试数据。符合采用T检验的前提。观察下面绘制的样本数据分布图形，可以发现符合正态分布的特征，因此可以采用T检验。
 
-因为时加入了干扰，根据日常经验不一致时朗读时长肯定会高于一致时的朗读时长。因此采用单尾检验，置信水平
+根据 \textbf{STROOP}
+实验的描述，是对每个独立测试者（即测试者之间不会相互干扰）进行一致和不一致两种情况下的连续测试，收集测试对象在两种情况下的完成测试的时长。因此适用相依样本T检验。
+
+因为加入了干扰，根据日常经验不一致时朗读时长肯定会高于一致时的朗读时长。因此采用单尾检验，置信水平
 0.05
 
 \begin{verbatim}
@@ -328,7 +334,7 @@ alpha-level: 0.05
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{HTML}
-        \PYZlt{}iframe src=\PYZdq{}./table1.html\PYZdq{} width=700 height=350\PYZgt{}\PYZlt{}/iframe\PYZgt{}
+        \PYZlt{}iframe src=\PYZdq{}./stroopdata.html\PYZdq{} width=700 height=350\PYZgt{}\PYZlt{}/iframe\PYZgt{}
 \end{Verbatim}
 
 
@@ -338,18 +344,27 @@ alpha-level: 0.05
     \end{verbatim}
 
     
-    \paragraph{样本原始数据:}\label{ux6837ux672cux539fux59cbux6570ux636e}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{err}{下}\PY{err}{面}\PY{err}{图}\PY{err}{形}\PY{err}{绘}\PY{err}{制}\PY{err}{了}\PY{err}{一}\PY{err}{致}\PY{err}{和}\PY{err}{不}\PY{err}{一}\PY{err}{致}\PY{err}{两}\PY{err}{种}\PY{err}{情}\PY{err}{况}\PY{err}{下}\PY{err}{的}\PY{n}{T}\PY{err}{分}\PY{err}{布}\PY{err}{图}\PY{err}{，}\PY{err}{从}\PY{err}{图}\PY{err}{中}\PY{err}{可}\PY{err}{以}\PY{err}{看}\PY{err}{到}\PY{err}{符}\PY{err}{合}\PY{err}{正}\PY{err}{态}\PY{err}{分}\PY{err}{布}\PY{err}{的}\PY{err}{特}\PY{err}{征}\PY{err}{。}
+        \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{HTML}
+        \PYZlt{}iframe src=\PYZdq{}./stroop\PYZhy{}dist.html\PYZdq{} width=700 height=350\PYZgt{}\PYZlt{}/iframe\PYZgt{}
+\end{Verbatim}
+
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{k+kn}{from} \PY{n+nn}{IPython.display} \PY{k+kn}{import} \PY{n}{FileLink}
-        \PY{n}{FileLink}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./stroopdata.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\end{Verbatim}
+
+          File "<ipython-input-4-4226ddbbb854>", line 1
+        下面图形绘制了一致和不一致两种情况下的T分布图，从图中可以看到符合正态分布的特征。
+        \^{}
+    SyntaxError: invalid syntax
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}5}]:} /media/psf/sources/udacity/data\_analyse/proj1/stroopdata.csv
-\end{Verbatim}
-            
+    \end{Verbatim}
+
+    \paragraph{样本原始数据:}\label{ux6837ux672cux539fux59cbux6570ux636e}
+
+\href{https://raw.githubusercontent.com/ShiChJ/DAND-Basic-Materials/master/P1/Project_Files/stroopdata.csv}{stroopdata.csv}
+
     \subsection{描述统计量(Descriptive Statistics)(M,
 SD)}\label{ux63cfux8ff0ux7edfux8ba1ux91cfdescriptive-statisticsm-sd}
 
@@ -403,28 +418,33 @@ statestics)}\label{ux63a8ux8bbaux7edfux8ba1ux91cfinferential-statestics}
 \begin{verbatim}
 direction: one-tailed
 
-P-value: 0.05
+alpha-value: 0.05
 
 S = 4.86482691
 \end{verbatim}
 
 \paragraph{标准误差(SE)}\label{ux6807ux51c6ux8befux5deese}
 
-\[SE = \frac {S}{\sqrt{N-1}} = 1.014386533\]
+\[SE = \frac {S}{\sqrt{N}} = 0.993028634705049\]
 
 \paragraph{T critical-value:}\label{t-critical-value}
 
 \begin{verbatim}
-t(df) = 1.714
+t(df) = 2.064
 \end{verbatim}
 
 \paragraph{T统计量(T-statisics):}\label{tux7edfux8ba1ux91cft-statisics}
 
 \[T = \frac {\bar{X_d}}{\frac {S}{\sqrt {N}}} = 8.020706944\]
 
+\paragraph{P-value:}\label{p-value}
+
+根据T值和自由度DF查T表格得到P-value: P-value \textless{} 0.0005
+\textless{} alpha-value
+
 \paragraph{置信区间(CI):}\label{ux7f6eux4fe1ux533aux95f4ci}
 
-\[CI = \bar {X_d} \pm t(df) = 7.964791667 \pm 1.714 = [6.262740587,9.666842747]\]
+\[CI = \bar {X_d} \pm t(df) = 8.020706944 \pm 2.064 = [5.9567,10.0847]\]
 
     \subsection{决策}\label{ux51b3ux7b56}
 
@@ -433,7 +453,7 @@ t(df) = 1.714
 \paragraph{\texorpdfstring{Reject
 \(H_0\)}{Reject H\_0}}\label{reject-h_0}
 
-    \section{效应量测量}\label{ux6548ux5e94ux91cfux6d4bux91cf}
+    \subsection{效应量测量}\label{ux6548ux5e94ux91cfux6d4bux91cf}
 
 \paragraph{Cohen's D}\label{cohens-d}
 
@@ -441,17 +461,25 @@ t(df) = 1.714
 
     \subsection{推论计算的统计意义}\label{ux63a8ux8bbaux8ba1ux7b97ux7684ux7edfux8ba1ux610fux4e49}
 
-颜色单词和显示（或书写）该单词的颜色不一致时朗读所需的平均时长比一致时的朗读平均时长多了6到9秒。
-样本均值和总体均值大概有1.63秒的差距。
+颜色单词和显示（或书写）该单词的颜色不一致时朗读所需的平均时长比一致时的朗读平均时长多了6到10秒。
+一致和不一致两种测试的均值有1.6倍的标准偏差。
 统计具有显著意义，不一致时朗读时长显著大于一致时的朗读时长。
 
     links:
 
-\begin{verbatim}
-[斯特鲁普效应](https://zh.wikipedia.org/wiki/%E6%96%AF%E7%89%B9%E9%B2%81%E6%99%AE%E6%95%88%E5%BA%94)
+\href{https://zh.wikipedia.org/wiki/\%E6\%96\%AF\%E7\%89\%B9\%E9\%B2\%81\%E6\%99\%AE\%E6\%95\%88\%E5\%BA\%94}{斯特鲁普效应}
 
-[Demonstration of Stroop Effect – "Name that color" test](http://www.math.unt.edu/~tam/SelfTests/StroopEffects.html)
-\end{verbatim}
+\href{http://www.math.unt.edu/~tam/SelfTests/StroopEffects.html}{Demonstration
+of Stroop Effect -- "Name that color" test}
+
+\href{http://www.csic.cornell.edu/Elrod/t-test/t-test-assumptions.html}{Assumptions
+for the t-test}
+
+\href{http://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/t-score-vs-z-score/}{T-Score
+vs. Z-Score: What's the Difference?}
+
+\href{https://ncalculators.com/math-worksheets/calculate-standard-error.htm}{How
+to Calculate Standard Error}
 
 
     % Add a bibliography block to the postdoc
